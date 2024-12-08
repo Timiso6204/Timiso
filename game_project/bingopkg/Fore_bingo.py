@@ -19,7 +19,7 @@ class Fore_bingo:
             num2 = int(input('숫자2 : '))
             if num1 not in self.numbers or num2 not in self.numbers:
                 print('선택한 숫자에서 고르시오.')
-                self.perform_operation(numbers)
+                self.perform_operation(numbers,operator)
 
         if operator == "+":
             return num1 + num2

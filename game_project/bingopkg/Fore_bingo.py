@@ -15,8 +15,15 @@ class Fore_bingo:
         else:
             print(self.numbers)
             print('선택된 연산자',operator)
-            num1 = int(input('숫자1 : '))
-            num2 = int(input('숫자2 : '))
+            while True:
+                num1 = input('숫자1 : ')
+                num2 = input('숫자2 : ')
+                if num1.isdigit() and num2.isdigit():
+                    num1 = int(num1)  # 문자열을 정수로 변환
+                    num2 = int(num2)
+                    break
+                else:
+                    print("잘못된 입력입니다. 숫자를 입력해주세요.")
             if num1 not in self.numbers or num2 not in self.numbers:
                 print('선택한 숫자에서 고르시오.')
                 self.perform_operation(numbers,operator)
@@ -54,7 +61,13 @@ class Fore_bingo:
         while True:
             print(f"=== 턴 {turn} ===")
             # 랜덤 숫자 선택
-            choice = int(input('랜덤 숫자 : 1, 사칙 연산 : 2 '))
+            while True:
+                choice = input('랜덤 숫자 : 1, 사칙 연산 : 2 ')
+                if choice.isdigit() and choice in {'1', '2'}:
+                    choice = int(choice)  # 문자열을 정수로 변환
+                    break
+                else:
+                    print("잘못된 입력입니다. 1 또는 2를 입력해주세요.")
             os.system('cls')
             if choice == 1:
                 rand_num = random.randint(1, self.num_range)
